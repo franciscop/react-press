@@ -1,38 +1,53 @@
 {
   "name": "react-press",
   "version": "0.1.0",
-  "description": "⏎ Easily handle key press events with React",
-  "main": "press.min.js",
-  "scripts": {
-    "build": "webpack -c",
-    "test": "jest --coverage",
-    "gzip": "gzip -c press.js | wc -c && echo 'bytes' # Only for Unix",
-    "watch": "jest --coverage"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/franciscop/react-press.git"
-  },
-  "keywords": ["react", "press", "keypress", "keyboard", "down", "event", "handler"],
+  "description": "⏎ Easily handle key press events and shortcuts with React",
+  "homepage": "https://github.com/franciscop/react-press#readme",
+  "repository": "https://github.com/franciscop/react-press",
+  "bugs": "https://github.com/franciscop/react-press/issues",
+  "funding": "https://www.paypal.me/franciscopresencia/19",
   "author": "Francisco Presencia <public@francisco.io> (https://francisco.io/)",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/franciscop/react-press/issues"
+  "scripts": {
+    "build": "rollup -c",
+    "size": "echo $(gzip -c index.min.js | wc -c) bytes",
+    "start": "jest --watch",
+    "test": "jest --coverage"
   },
-  "homepage": "https://github.com/franciscop/react-press#readme",
+  "keywords": [
+    "react",
+    "press",
+    "shortcut",
+    "keyboard",
+    "event"
+  ],
+  "main": "index.min.js",
+  "type": "module",
+  "files": [],
   "devDependencies": {
-    "@babel/core": "^7.1.5",
-    "@babel/preset-env": "^7.1.5",
-    "@babel/preset-react": "^7.0.0",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^23.6.0",
-    "babel-loader": "^8.0.4",
-    "jest": "^23.6.0",
-    "react": "^16.3.0",
-    "react-dom": "^16.3.0",
-    "regenerator-runtime": "^0.12.1",
-    "uglify-es": "^3.1.3",
-    "webpack": "^4.25.0",
-    "webpack-cli": "^3.1.2"
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "babel-polyfill": "^6.26.0",
+    "jest": "^28.1.0",
+    "jest-environment-jsdom": "^28.1.0",
+    "react": "^18.2.0",
+    "react-test": "^0.19.0",
+    "rollup": "^1.32.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-terser": "^5.2.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
   }
 }
